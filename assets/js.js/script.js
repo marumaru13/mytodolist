@@ -1,7 +1,4 @@
 let btn = document.getElementById('btn');
-// btn.addEventListener('mouseover',function(){
-//     btn.style.backgroundColor='skyblue';
-// });
 
 btn.addEventListener('click',function(){
   let input = document.getElementById('input');
