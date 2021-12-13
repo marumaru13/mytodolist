@@ -22,7 +22,7 @@ btn.addEventListener('click',function(){
    oya1.classList.add('oya');
 
    finish.textContent ='Done';
-   console.log(finish);
+  //  console.log(finish);
    finish.classList.add('finish')
    oya1.appendChild(finish);
    oya1.appendChild(trash);
@@ -37,7 +37,8 @@ btn.addEventListener('click',function(){
    });
    
    trash.addEventListener('click',function(){
-     this.parentElement.remove();
+     this.parentElement.parentElement.remove();
+    // console.log(this.parentElement.parentElement);
    });
   }
 });
