@@ -12,12 +12,14 @@ let btn = document.getElementById('btn');
 btn.addEventListener('click',function(){
   let input = document.getElementById('input');
     const task = input.value;
+    
     if(task!=''){
       creatTask(task);
       data.push(task);
       let text = JSON.stringify(data);
       // ローカルストレージに保存
       localStorage.setItem('key',text);
+
   //  let li = document.createElement('li');
 
   //  li.classList.add('list');
@@ -50,11 +52,8 @@ btn.addEventListener('click',function(){
   //   finishoya[0].appendChild(li);
   //  });
    
-   trash.addEventListener('click',function(){
-     this.parentElement.parentElement.remove();
-    // console.log(this.parentElement.parentElement);
-   });
-  }
+   
+  };
 });
 
 function creatTask(karabako){
@@ -66,9 +65,9 @@ function creatTask(karabako){
 
   let parent = document.getElementsByClassName("todo-list");
   parent[0].appendChild(li);
-  
+  // ゴミ箱の要素を作る
   let trash = document.createElement('div');
-  trash.textContent = 'Delete';
+  trash.textContent = 'Delete'; 
   trash.classList.add('delete');
   
   let finish = document.createElement('div');
@@ -83,25 +82,28 @@ function creatTask(karabako){
   li.appendChild(oya1);
 
   finish.addEventListener('click',function(){
-   // this.parentElement.remove();
-   let finishoya=document.getElementsByClassName('finishoya')
-   console.log(finishoya);
-   this.remove();
-   finishoya[0].appendChild(li);
+    // this.parentElement.remove();
+    let finishoya=document.getElementsByClassName('finishoya')
+    console.log(finishoya);
+    this.remove();
+    finishoya[0].appendChild(li);
 
-  //  配列から消す
-  // indexOf()で何番目か特定
-  let res=data.indexOf(karabako);
-  
-  data.splice(data.indexOf(karabako));
+    //  配列から消す
+    // indexOf()で何番目か特定
+    let res=data.indexOf(karabako);
+    
+    data.splice(data.indexOf(karabako));
 
-   let text = JSON.stringify(data);
-   // ローカルストレージに保存
-   localStorage.setItem('key',text);
-
+    let text = JSON.stringify(data);
+    // ローカルストレージに保存
+    localStorage.setItem('key',text);    
   });
   
+  trash.addEventListener('click',function(){
+    this.parentElement.parentElement.remove();
+   // console.log(this.parentElement.parentElement);
+  });
 
-}
+};
 
 
