@@ -18,6 +18,12 @@ if (data2==null){
   for(var i=0;i<data2.length;i++){
     creatTask(data2[i],finishoya);
  };
+// 一緒に取ったdoneを
+// 下のdoneだけを消す
+ let finishbtns= document.querySelectorAll('.finishoya .finish');
+ for (const finish of finishbtns) {
+   finish.remove();
+ }
 }
 
 let btn = document.getElementById('btn');
@@ -58,11 +64,13 @@ function creatTask(karabako,karabako2){
   oya1.appendChild(finish);
   oya1.appendChild(trash);
   li.appendChild(oya1);
-
+　//  　finish押したら
   finish.addEventListener('click',function(){
     // this.parentElement.remove();
     console.log(karabako2);
+    console.log(this);
     this.remove();
+    
     finishoya[0].appendChild(li);
 
     data2.push(karabako);
